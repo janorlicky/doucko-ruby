@@ -1,0 +1,68 @@
+pole = [1, 2, 6, 4, 8, 9, 13]
+
+puts pole.sum
+
+soucet = 0
+pole.each do |cislo|
+  soucet += cislo
+end
+
+puts soucet
+
+pole = [1, 2, 6, 4, 8, 9, 13]
+
+array = []
+
+pole.each do |cislo|
+  array << cislo
+end
+
+p array
+
+pole = [1, 2, 1, 4, 8, 9, 13]
+
+array = []
+
+pole.each_with_index do |cislo, index|
+  if pole.find_index(cislo) < index
+  else
+    array << cislo
+  end
+end
+
+p array
+
+puts pole.length - array.length
+
+pole = [1, 2, 1, 4, 8, 9, 13]
+p pole.rotate(4)
+
+nove_pole = []
+pocatecni_pozice = 4
+
+prvni_cast = pole[pocatecni_pozice..(pole.length - 1)]
+druha_cast = pole[0..(pocatecni_pozice - 1)]
+nove_pole = nove_pole.concat(prvni_cast)
+p nove_pole
+
+pocatecni_pozice = 4
+pocatecni_pozice.times do
+  pole << pole.shift
+end
+
+p pole
+
+#193
+pole = [1, 3, 5, 7, 9, 42]
+
+if (pole.length % 2 == 0 )
+  #sude
+  serazene_pole = pole.sort
+  index = serazene_pole.length / 2 
+  p (serazene_pole[index] + serazene_pole[index - 1]) / 2
+else
+  #liche
+  serazene_pole = pole.sort
+  index = serazene_pole.length / 2 
+  p serazene_pole[index]
+end
